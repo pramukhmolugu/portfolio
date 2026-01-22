@@ -1,42 +1,97 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function Resume() {
-  const router = useRouter();
-
-  // Works on BOTH Vercel and GitHub Pages (if you ever add a basePath later)
-  const pdfUrl = `${router.basePath}/Pramukh_Resume_DE_Professional.pdf`;
+  const pdfPath = "/Pramukh_Resume_DE_Professional.pdf";
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-white">
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Back to Home */}
-        <Link href="/" className="text-blue-300 hover:text-blue-200 inline-block">
-          ← Back to Home
-        </Link>
+    <>
+      <Head>
+        <title>Resume - Pramukh Chandra Molugu</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 
-        {/* Page Title */}
-        <h1 className="text-5xl font-bold mt-6 mb-8">Resume</h1>
+      <div className="min-h-screen bg-[#0a0e1a] text-white px-6 py-10">
+        <style jsx global>{`
+          @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+          body {
+            font-family: "Inter", sans-serif;
+          }
+          .card {
+            background: rgba(26, 31, 53, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+            border-radius: 18px;
+            overflow: hidden;
+          }
+          .btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            padding: 12px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+          }
+          .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35);
+          }
+          .subtle {
+            color: #9ca3af;
+          }
+        `}</style>
 
-        {/* Download Button */}
-        <a
-          href={pdfUrl}
-          download
-          className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition"
-        >
-          Download Resume
-        </a>
+        <div className="max-w-6xl mx-auto">
+          {/* Top row */}
+          <div className="flex items-center justify-between mb-6">
+            <Link href="/" className="subtle hover:text-white transition-colors">
+              ← Back to Home
+            </Link>
 
-        {/* PDF Viewer */}
-        <div className="mt-8 rounded-xl overflow-hidden border border-white/10 bg-white shadow-xl">
-          <iframe
-            src={pdfUrl}
-            title="Resume PDF"
-            className="w-full"
-            style={{ height: "85vh", border: "none" }}
-          />
+            <a className="btn" href={pdfPath} download>
+              {/* download icon */}
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="M7 10l5 5 5-5" />
+                <path d="M12 15V3" />
+              </svg>
+              Download Resume
+            </a>
+          </div>
+
+          <h1 className="text-5xl font-bold mb-6">Resume</h1>
+
+          {/* PDF Viewer */}
+          <div className="card">
+            <div className="w-full" style={{ height: "80vh" }}>
+              <iframe
+                src={pdfPath}
+                title="Resume PDF"
+                width="100%"
+                height="100%"
+                style={{ border: "none" }}
+              />
+            </div>
+          </div>
+
+          <p className="subtle mt-4 text-sm">
+            If the PDF doesn’t render in your browser, use the download button.
+          </p>
         </div>
       </div>
-    </div>
+    </>
   );
 }
