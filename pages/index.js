@@ -167,7 +167,7 @@ export default function Portfolio() {
               <span className="nav-link" onClick={() => scrollToSection('experience')}>Experience</span>
               <span className="nav-link" onClick={() => scrollToSection('projects')}>Projects</span>
               <span className="nav-link" onClick={() => scrollToSection('about')}>About</span>
-              <a className="nav-link" href="/Pramukh_Resume_DE_Professional.pdf" download>Resume</a>
+              <a className="nav-link" href="/resume">Resume</a>
               <span className="nav-link" onClick={() => scrollToSection('contact')}>Contact</span>
             </div>
           </div>
