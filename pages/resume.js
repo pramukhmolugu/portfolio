@@ -75,7 +75,7 @@ export default function Resume() {
           <div className="card">
             <div className="w-full" style={{ height: "calc(100vh - 200px)" }}>
               <iframe
-  src={`${pdfPath}#toolbar=0&view=FitV`}
+  src={pdfPath}
   title="Resume PDF"
   width="100%"
   height="100%"
