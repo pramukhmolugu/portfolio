@@ -84,9 +84,6 @@ export default function Resume() {
             </div>
           </div>
 
-          <p className="subtle mt-4 text-sm">
-            If the PDF doesn’t render in your browser, use the download button.
-          </p>
         </div>
       </div>
     </>
