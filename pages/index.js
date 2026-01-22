@@ -546,7 +546,7 @@ export default function Portfolio() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-[#0a0e1a] text-white">
+        <section id="contact" className="py-20 bg-white text-gray-900">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-4xl font-bold mb-8">Contact</h2>
             
