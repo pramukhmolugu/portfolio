@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
+  const [visibleSections, setVisibleSections] = useState({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -10,6 +11,28 @@ export default function Portfolio() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Apple-style scroll-triggered animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => ({
+              ...prev,
+              [entry.target.id]: true,
+            }));
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
   const scrollToSection = (id) => {
@@ -35,10 +58,33 @@ export default function Portfolio() {
             box-sizing: border-box;
           }
           
+          /* Apple-style smooth scrolling */
+          html {
+            scroll-behavior: smooth;
+          }
+          
           body {
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
           }
+
+          /* Apple-style scroll animations */
+          .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+
+          .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          /* Staggered animation delays for children */
+          .stagger-1 { transition-delay: 0.1s; }
+          .stagger-2 { transition-delay: 0.2s; }
+          .stagger-3 { transition-delay: 0.3s; }
+          .stagger-4 { transition-delay: 0.4s; }
 
           .floating-icon {
             animation: float 6s ease-in-out infinite;
@@ -69,14 +115,15 @@ export default function Portfolio() {
           .floating-icon:nth-child(8) { animation-delay: 3.5s; }
 
           .card-hover {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 1px solid rgba(59, 130, 246, 0.3);
+            will-change: transform, box-shadow;
           }
 
           .card-hover:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.01);
             border-color: rgba(59, 130, 246, 0.6);
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.25);
           }
 
           .skill-tag {
@@ -86,13 +133,15 @@ export default function Portfolio() {
             border-radius: 20px;
             font-size: 12px;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform, background;
           }
 
           .skill-tag:hover {
-            background: rgba(59, 130, 246, 0.3);
-            border-color: rgba(59, 130, 246, 0.6);
-            transform: translateY(-2px);
+            background: rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.8);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
           }
 
           .btn-primary {
@@ -100,13 +149,14 @@ export default function Portfolio() {
             padding: 12px 32px;
             border-radius: 25px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: none;
             cursor: pointer;
             color: white;
             font-size: 14px;
             position: relative;
             overflow: hidden;
+            will-change: transform, box-shadow;
           }
 
           .btn-primary::before {
@@ -119,7 +169,8 @@ export default function Portfolio() {
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.3);
             transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
           }
 
           .btn-primary:hover::before {
@@ -128,8 +179,12 @@ export default function Portfolio() {
           }
 
           .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+          }
+
+          .btn-primary:active {
+            transform: translateY(-2px) scale(0.98);
           }
 
           .btn-primary span {
@@ -138,15 +193,31 @@ export default function Portfolio() {
           }
 
           .nav-link {
-            transition: color 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
             color: #9ca3af;
+            position: relative;
+          }
+
+          .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
           }
 
           .nav-link:hover {
             color: #ffffff;
+          }
+
+          .nav-link:hover::after {
+            width: 100%;
           }
 
           /* Zigzag Timeline - Matches Nick Byrne's layout */
@@ -229,13 +300,14 @@ export default function Portfolio() {
             border-radius: 16px;
             padding: 24px;
             text-align: left;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform, box-shadow;
           }
 
           .timeline-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(59, 130, 246, 0.6);
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(59, 130, 246, 0.7);
+            box-shadow: 0 25px 60px rgba(59, 130, 246, 0.3);
           }
 
           .timeline-date {
