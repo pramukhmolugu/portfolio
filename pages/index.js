@@ -252,6 +252,8 @@ export default function Portfolio() {
 
           .nav-link:hover {
             color: #ffffff;
+            transform: scale(1.15) translateY(-2px);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
           }
 
           .nav-link:hover::after {
