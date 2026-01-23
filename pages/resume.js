@@ -72,16 +72,14 @@ export default function Resume() {
   Download Resume
 </a>
           {/* PDF Viewer */}
-          <div className="card">
-            <div className="w-full" style={{ height: "calc(100vh - 120px)" }}>
-              <iframe
-  src={pdfPath}
-  title="Resume PDF"
-  width="100%"
-  height="100%"
-  style={{ border: "none" }}
-/>
-            </div>
+          <div className="w-full bg-[#1a1a1a] rounded-lg shadow-lg p-8">
+            <iframe
+              src={pdfPath}
+              title="Resume PDF"
+              width="100%"
+              height="1100px"
+              style={{ border: "1px solid #333", borderRadius: "4px" }}
+            />
           </div>
 
         </div>
