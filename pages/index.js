@@ -553,13 +553,13 @@ export default function Portfolio() {
           </div>
 
           {/* Mobile Navigation Menu */}
-          <div className={`md:hidden absolute top-full left-0 right-0 bg-[#0a0e1a]/98 backdrop-blur-xl transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-            <div className="flex flex-col px-6 py-4 gap-4">
-              <span className="nav-link text-lg py-2 border-b border-gray-800" onClick={() => { scrollToSection('experience'); setMobileMenuOpen(false); }}>Experience</span>
-              <span className="nav-link text-lg py-2 border-b border-gray-800" onClick={() => { scrollToSection('projects'); setMobileMenuOpen(false); }}>Projects</span>
-              <span className="nav-link text-lg py-2 border-b border-gray-800" onClick={() => { scrollToSection('about'); setMobileMenuOpen(false); }}>About</span>
-              <a className="nav-link text-lg py-2 border-b border-gray-800" href="/resume" onClick={() => setMobileMenuOpen(false)}>Resume</a>
-              <span className="nav-link text-lg py-2" onClick={() => { scrollToSection('contact'); setMobileMenuOpen(false); }}>Contact</span>
+          <div className={`md:hidden fixed top-[60px] left-0 right-0 bottom-0 bg-[#0a0a0a] z-40 transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+            <div className="flex flex-col px-6 py-6 gap-2">
+              <span className="nav-link text-xl py-4 border-b border-gray-800" onClick={() => { scrollToSection('experience'); setMobileMenuOpen(false); }}>Experience</span>
+              <span className="nav-link text-xl py-4 border-b border-gray-800" onClick={() => { scrollToSection('projects'); setMobileMenuOpen(false); }}>Projects</span>
+              <span className="nav-link text-xl py-4 border-b border-gray-800" onClick={() => { scrollToSection('about'); setMobileMenuOpen(false); }}>About</span>
+              <a className="nav-link text-xl py-4 border-b border-gray-800" href="/resume" onClick={() => setMobileMenuOpen(false)}>Resume</a>
+              <span className="nav-link text-xl py-4" onClick={() => { scrollToSection('contact'); setMobileMenuOpen(false); }}>Contact</span>
             </div>
           </div>
         </nav>
