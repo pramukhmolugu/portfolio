@@ -149,19 +149,46 @@ export default function Portfolio() {
             color: #ffffff;
           }
 
-          .timeline-line {
+          /* Zigzag Timeline - Matches Nick Byrne's layout */
+          .zigzag-timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+          }
+
+          .zigzag-timeline::before {
+            content: '';
             position: absolute;
-            left: 0;
+            left: 50%;
             top: 0;
             bottom: 0;
             width: 2px;
             background: #3b82f6;
+            transform: translateX(-50%);
           }
 
-          .timeline-dot {
+          .timeline-item {
+            position: relative;
+            width: calc(50% - 40px);
+            margin-bottom: 40px;
+          }
+
+          .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+            text-align: right;
+          }
+
+          .timeline-item:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+            text-align: left;
+          }
+
+          .timeline-item::before {
+            content: '';
             position: absolute;
-            left: -7px;
-            top: 32px;
+            top: 24px;
             width: 16px;
             height: 16px;
             background: #0a0a0a;
@@ -170,9 +197,52 @@ export default function Portfolio() {
             z-index: 10;
           }
 
-          .experience-card {
-            border-left: 2px solid #3b82f6;
-            margin-left: -2px;
+          .timeline-item:nth-child(odd)::before {
+            right: -48px;
+          }
+
+          .timeline-item:nth-child(even)::before {
+            left: -48px;
+          }
+
+          .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 32px;
+            height: 2px;
+            background: #3b82f6;
+          }
+
+          .timeline-item:nth-child(odd)::after {
+            right: -32px;
+          }
+
+          .timeline-item:nth-child(even)::after {
+            left: -32px;
+          }
+
+          .timeline-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: left;
+            transition: all 0.3s ease;
+          }
+
+          .timeline-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.6);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+          }
+
+          .timeline-date {
+            color: #60a5fa;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
           }
         `}</style>
 
@@ -287,154 +357,92 @@ export default function Portfolio() {
 
         {/* Work Experience Section */}
         <section id="experience" className="py-32 bg-[#0a0a0a]">
-          <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-4xl font-bold mb-16">Work Experience</h2>
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-4xl font-bold mb-16 text-center">Work Experience</h2>
 
-            <div className="space-y-8 relative pl-8">
-              <div className="timeline-line"></div>
-
-              {/* Data Engineer / Analyst - Comcast */}
-              <div className="card-hover experience-card bg-[#1a1a1a]/80 backdrop-blur-sm p-8 rounded-2xl relative">
-                <div className="timeline-dot"></div>
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-1">Data Engineer / Analyst (Contract)</h3>
-                    <p className="text-blue-400 text-sm">Comcast Corporation — Philadelphia, PA</p>
+            <div className="zigzag-timeline">
+              {/* Job 1 - Left side (odd) */}
+              <div className="timeline-item">
+                <div className="timeline-card">
+                  <div className="timeline-date">May 2025 - Present</div>
+                  <h3 className="text-xl font-bold mb-1">Data Engineer / Analyst (Contract)</h3>
+                  <p className="text-blue-400 text-sm mb-3">Comcast Corporation — Philadelphia, PA</p>
+                  <ul className="space-y-2 text-gray-300 text-sm mb-4">
+                    <li>• Partnered with product, marketing, and operations to define KPIs and answer telecom OSS/BSS business questions</li>
+                    <li>• Built and maintained executive dashboards in ThoughtSpot/Power BI/Tableau, publishing 12 KPI dashboards</li>
+                    <li>• Automated extracts and validations via SQL + AWS S3 + Rundeck, reducing manual effort by 30–40%</li>
+                    <li>• Developed Python scripts to automate data extraction and KPI reporting workflows</li>
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="skill-tag">SQL</span>
+                    <span className="skill-tag">Python</span>
+                    <span className="skill-tag">ThoughtSpot</span>
+                    <span className="skill-tag">Power BI</span>
+                    <span className="skill-tag">AWS S3</span>
                   </div>
-                  <span className="text-gray-400 text-sm">May 2025 - Present</span>
-                </div>
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Partnered with product, marketing, and operations to define KPIs and answer telecom OSS/BSS business questions using multi-source data (CRM, BPM, billing, network)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Built and maintained executive dashboards in ThoughtSpot/Power BI/Tableau, publishing 12 KPI dashboards with daily/weekly refreshes</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Automated extracts and validations via SQL + AWS S3 + Rundeck + JSON/YAML configs, reducing manual reporting effort by 30–40%</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Developed Python scripts to automate data extraction, validation, and KPI reporting workflows, improving reporting reliability and data quality</span>
-                  </li>
-                </ul>
-                <div className="flex flex-wrap gap-2">
-                  <span className="skill-tag">SQL</span>
-                  <span className="skill-tag">Python</span>
-                  <span className="skill-tag">ThoughtSpot</span>
-                  <span className="skill-tag">Power BI</span>
-                  <span className="skill-tag">Tableau</span>
-                  <span className="skill-tag">AWS S3</span>
-                  <span className="skill-tag">Rundeck</span>
-                  <span className="skill-tag">JSON</span>
-                  <span className="skill-tag">YAML</span>
-                  <span className="skill-tag">Trino/Presto</span>
                 </div>
               </div>
 
-              {/* Data Analyst / SQL Developer - Skygen */}
-              <div className="card-hover experience-card bg-[#1a1a1a]/80 backdrop-blur-sm p-8 rounded-2xl relative">
-                <div className="timeline-dot"></div>
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-1">Data Analyst / SQL Developer</h3>
-                    <p className="text-blue-400 text-sm">Skygen USA LLC — Menomonee Falls, WI</p>
+              {/* Job 2 - Right side (even) */}
+              <div className="timeline-item">
+                <div className="timeline-card">
+                  <div className="timeline-date">Jan 2022 - Mar 2025</div>
+                  <h3 className="text-xl font-bold mb-1">Data Analyst / SQL Developer</h3>
+                  <p className="text-blue-400 text-sm mb-3">Skygen USA LLC — Menomonee Falls, WI</p>
+                  <ul className="space-y-2 text-gray-300 text-sm mb-4">
+                    <li>• Developed and scheduled SSRS reports with parameters/expressions, delivering 40 production reports</li>
+                    <li>• Built complex T-SQL stored procedures and business rules using SSIS ETL, reducing runtime by 40–60%</li>
+                    <li>• Resolved reporting enhancement tickets using Azure/Service Desk, completing 25 tickets/month</li>
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="skill-tag">SSRS</span>
+                    <span className="skill-tag">SSIS</span>
+                    <span className="skill-tag">T-SQL</span>
+                    <span className="skill-tag">SQL Server</span>
+                    <span className="skill-tag">Azure</span>
                   </div>
-                  <span className="text-gray-400 text-sm">Jan 2022 - Mar 2025</span>
-                </div>
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Developed and scheduled SSRS reports (matrix, drill-down, cascaded, multi-value, subreports) using parameters/expressions, delivering 40 production reports</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Built complex T-SQL stored procedures and integrated business rules using SSIS ETL, reducing runtime by 40–60% on heavy reports</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Resolved reporting enhancement tickets using Azure/Service Desk, completing 25 tickets/month with strong QA and dataset validation</span>
-                  </li>
-                </ul>
-                <div className="flex flex-wrap gap-2">
-                  <span className="skill-tag">SSRS</span>
-                  <span className="skill-tag">SSIS</span>
-                  <span className="skill-tag">T-SQL</span>
-                  <span className="skill-tag">SQL Server</span>
-                  <span className="skill-tag">Azure</span>
-                  <span className="skill-tag">Excel</span>
-                  <span className="skill-tag">Tableau</span>
-                  <span className="skill-tag">Power BI</span>
                 </div>
               </div>
 
-              {/* Business Intelligence Developer - EMR */}
-              <div className="card-hover experience-card bg-[#1a1a1a]/80 backdrop-blur-sm p-8 rounded-2xl relative">
-                <div className="timeline-dot"></div>
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-1">Business Intelligence Developer</h3>
-                    <p className="text-blue-400 text-sm">EMR Metal Recycling — Camden, NJ</p>
+              {/* Job 3 - Left side (odd) */}
+              <div className="timeline-item">
+                <div className="timeline-card">
+                  <div className="timeline-date">Jul 2020 - Dec 2021</div>
+                  <h3 className="text-xl font-bold mb-1">Business Intelligence Developer</h3>
+                  <p className="text-blue-400 text-sm mb-3">EMR Metal Recycling — Camden, NJ</p>
+                  <ul className="space-y-2 text-gray-300 text-sm mb-4">
+                    <li>• Designed enterprise warehouse/reporting solutions using T-SQL, SSIS, SSRS, and Tableau</li>
+                    <li>• Built scalable ETL/data movement pipelines, supporting 15 recurring feeds</li>
+                    <li>• Improved database/report performance through monitoring and SQL best practices</li>
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="skill-tag">T-SQL</span>
+                    <span className="skill-tag">SSIS</span>
+                    <span className="skill-tag">SSRS</span>
+                    <span className="skill-tag">Tableau</span>
+                    <span className="skill-tag">Azure Data Factory</span>
                   </div>
-                  <span className="text-gray-400 text-sm">Jul 2020 - Dec 2021</span>
-                </div>
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Designed enterprise warehouse/reporting solutions using T-SQL, SSIS, SSRS, Tableau, and Azure reporting across 20–30 business functions</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Built scalable ETL/data movement pipelines using SSIS/replication/Data Factory, supporting 15 recurring feeds and improving reporting availability by 20–30%</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Improved database/report performance through monitoring and SQL best practices, reducing recurring incidents by 25–35%</span>
-                  </li>
-                </ul>
-                <div className="flex flex-wrap gap-2">
-                  <span className="skill-tag">T-SQL</span>
-                  <span className="skill-tag">SSIS</span>
-                  <span className="skill-tag">SSRS</span>
-                  <span className="skill-tag">Tableau</span>
-                  <span className="skill-tag">Azure Data Factory</span>
-                  <span className="skill-tag">SQL Server</span>
                 </div>
               </div>
 
-              {/* Data Analyst - Adaequare */}
-              <div className="card-hover experience-card bg-[#1a1a1a]/80 backdrop-blur-sm p-8 rounded-2xl relative">
-                <div className="timeline-dot"></div>
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-1">Data Analyst</h3>
-                    <p className="text-blue-400 text-sm">Adaequare — Hyderabad, India</p>
+              {/* Job 4 - Right side (even) */}
+              <div className="timeline-item">
+                <div className="timeline-card">
+                  <div className="timeline-date">Jul 2015 - Dec 2018</div>
+                  <h3 className="text-xl font-bold mb-1">Data Analyst</h3>
+                  <p className="text-blue-400 text-sm mb-3">Adaequare — Hyderabad, India</p>
+                  <ul className="space-y-2 text-gray-300 text-sm mb-4">
+                    <li>• Built ETL and reporting for healthcare claims/eligibility datasets, improving data integrity by 35%</li>
+                    <li>• Developed Tableau/SSRS dashboards and optimized SQL performance, reducing runtime by 50%</li>
+                    <li>• Delivered ad-hoc extracts and stakeholder analysis using SQL/Excel/Power BI</li>
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="skill-tag">SQL</span>
+                    <span className="skill-tag">Tableau</span>
+                    <span className="skill-tag">SSRS</span>
+                    <span className="skill-tag">Excel</span>
+                    <span className="skill-tag">Power BI</span>
                   </div>
-                  <span className="text-gray-400 text-sm">Jul 2015 - Dec 2018</span>
-                </div>
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Built ETL and reporting for healthcare claims/eligibility datasets, improving data integrity by 35% through validation rules and monitoring</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Developed Tableau/SSRS dashboards and optimized SQL performance, reducing report runtime by 50%</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-400 mr-3">•</span>
-                    <span>Delivered ad-hoc extracts and stakeholder analysis using SQL/Excel/Power BI, handling 5–10 requests/week during peak demand</span>
-                  </li>
-                </ul>
-                <div className="flex flex-wrap gap-2">
-                  <span className="skill-tag">SQL</span>
-                  <span className="skill-tag">Tableau</span>
-                  <span className="skill-tag">SSRS</span>
-                  <span className="skill-tag">Excel</span>
-                  <span className="skill-tag">Power BI</span>
                 </div>
               </div>
             </div>
@@ -567,7 +575,7 @@ export default function Portfolio() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-[#0a0a0a] text-white border-t border-gray-800">
+        <section id="contact" className="py-20 bg-white text-gray-900">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-4xl font-bold mb-8">Contact</h2>
 
@@ -577,7 +585,7 @@ export default function Portfolio() {
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <a href="mailto:pramukhmolugu@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors">
+                <a href="mailto:pramukhmolugu@gmail.com" className="text-blue-600 hover:text-blue-800 transition-colors">
                   pramukhmolugu@gmail.com
                 </a>
               </div>
@@ -592,7 +600,7 @@ export default function Portfolio() {
             <div>
               <h3 className="font-semibold mb-4">Connect</h3>
               <div className="flex gap-6">
-                <a href="https://linkedin.com/in/pramukhm/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <a href="https://linkedin.com/in/pramukhm/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
