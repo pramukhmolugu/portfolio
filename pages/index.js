@@ -4,6 +4,7 @@ import Head from 'next/head';
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState({});
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -356,18 +357,209 @@ export default function Portfolio() {
             font-weight: 500;
             margin-bottom: 8px;
           }
+
+          /* Mobile Responsive Styles */
+          @media (max-width: 768px) {
+            /* Hide desktop nav, show mobile nav */
+            .desktop-nav {
+              display: none;
+            }
+
+            .mobile-menu-btn {
+              display: block;
+            }
+
+            /* Mobile nav menu */
+            .mobile-nav {
+              position: fixed;
+              top: 60px;
+              left: 0;
+              right: 0;
+              background: rgba(10, 14, 26, 0.98);
+              backdrop-filter: blur(20px);
+              padding: 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+              transform: translateY(-100%);
+              opacity: 0;
+              transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+              z-index: 40;
+            }
+
+            .mobile-nav.open {
+              transform: translateY(0);
+              opacity: 1;
+            }
+
+            .mobile-nav .nav-link {
+              font-size: 18px;
+              padding: 10px 0;
+              border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            }
+
+            /* Hero section mobile */
+            .hero-title {
+              font-size: 2.5rem !important;
+            }
+
+            .hero-subtitle {
+              font-size: 1.25rem !important;
+            }
+
+            .hero-skills {
+              font-size: 0.875rem !important;
+            }
+
+            .hero-description {
+              font-size: 0.875rem !important;
+            }
+
+            /* Hide floating icons on mobile */
+            .floating-icon {
+              display: none;
+            }
+
+            /* Zigzag timeline becomes vertical on mobile */
+            .zigzag-timeline::before {
+              left: 20px;
+            }
+
+            .timeline-item {
+              width: 100% !important;
+              margin-left: 0 !important;
+              margin-right: 0 !important;
+              padding-left: 50px !important;
+              padding-right: 0 !important;
+              text-align: left !important;
+            }
+
+            .timeline-item::before {
+              left: 12px !important;
+              right: auto !important;
+            }
+
+            .timeline-item::after {
+              left: 28px !important;
+              right: auto !important;
+              width: 22px !important;
+            }
+
+            .timeline-card {
+              padding: 16px;
+            }
+
+            .timeline-card h3 {
+              font-size: 1rem;
+            }
+
+            /* About section stacked */
+            .about-grid {
+              grid-template-columns: 1fr !important;
+            }
+
+            /* Contact section */
+            .contact-section h2 {
+              font-size: 2rem;
+            }
+
+            /* General spacing */
+            .section-padding {
+              padding-top: 60px;
+              padding-bottom: 60px;
+            }
+
+            /* Smaller skill tags on mobile */
+            .skill-tag {
+              padding: 4px 10px;
+              font-size: 10px;
+            }
+          }
+
+          /* Tablet adjustments */
+          @media (max-width: 1024px) and (min-width: 769px) {
+            .zigzag-timeline::before {
+              left: 30px;
+            }
+
+            .timeline-item {
+              width: calc(100% - 60px) !important;
+              margin-left: 60px !important;
+              margin-right: 0 !important;
+              text-align: left !important;
+            }
+
+            .timeline-item::before {
+              left: -38px !important;
+              right: auto !important;
+            }
+
+            .timeline-item::after {
+              left: -22px !important;
+              right: auto !important;
+            }
+          }
+
+          /* Very small screens */
+          @media (max-width: 480px) {
+            .hero-title {
+              font-size: 2rem !important;
+            }
+
+            .btn-primary {
+              padding: 10px 24px;
+              font-size: 12px;
+            }
+
+            .timeline-card {
+              padding: 12px;
+            }
+
+            .skill-tag {
+              padding: 3px 8px;
+              font-size: 9px;
+            }
+          }
         `}</style>
 
         {/* Navigation */}
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0e1a]/90 backdrop-blur-md shadow-lg' : ''}`}>
-          <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div className="text-xl font-bold text-blue-400">Pramukh Molugu</div>
-            <div className="flex gap-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <div className="text-lg sm:text-xl font-bold text-blue-400">Pramukh Molugu</div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex gap-8">
               <span className="nav-link" onClick={() => scrollToSection('experience')}>Experience</span>
               <span className="nav-link" onClick={() => scrollToSection('projects')}>Projects</span>
               <span className="nav-link" onClick={() => scrollToSection('about')}>About</span>
               <a className="nav-link" href="/resume">Resume</a>
               <span className="nav-link" onClick={() => scrollToSection('contact')}>Contact</span>
+            </div>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              className="md:hidden p-2 text-white focus:outline-none"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Navigation Menu */}
+          <div className={`md:hidden absolute top-full left-0 right-0 bg-[#0a0e1a]/98 backdrop-blur-xl transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+            <div className="flex flex-col px-6 py-4 gap-4">
+              <span className="nav-link text-lg py-2 border-b border-gray-800" onClick={() => { scrollToSection('experience'); setMobileMenuOpen(false); }}>Experience</span>
+              <span className="nav-link text-lg py-2 border-b border-gray-800" onClick={() => { scrollToSection('projects'); setMobileMenuOpen(false); }}>Projects</span>
+              <span className="nav-link text-lg py-2 border-b border-gray-800" onClick={() => { scrollToSection('about'); setMobileMenuOpen(false); }}>About</span>
+              <a className="nav-link text-lg py-2 border-b border-gray-800" href="/resume" onClick={() => setMobileMenuOpen(false)}>Resume</a>
+              <span className="nav-link text-lg py-2" onClick={() => { scrollToSection('contact'); setMobileMenuOpen(false); }}>Contact</span>
             </div>
           </div>
         </nav>
@@ -444,18 +636,18 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="text-center z-10 max-w-4xl px-6">
-            <h1 className="hero-animate hero-animate-1 text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+          <div className="text-center z-10 max-w-4xl px-4 sm:px-6">
+            <h1 className="hero-animate hero-animate-1 text-3xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               Pramukh Chandra Molugu
             </h1>
-            <p className="hero-animate hero-animate-2 text-2xl text-gray-300 mb-2">
+            <p className="hero-animate hero-animate-2 text-lg sm:text-xl md:text-2xl text-gray-300 mb-2">
               Data Analyst / BI Developer
             </p>
-            <p className="hero-animate hero-animate-3 text-lg text-blue-400 mb-4">
+            <p className="hero-animate hero-animate-3 text-sm sm:text-base md:text-lg text-blue-400 mb-4">
               SQL • Power BI • Tableau • ThoughtSpot • ETL
             </p>
-            <p className="hero-animate hero-animate-4 text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-              8+ years building executive dashboards, automated reporting pipelines,<br />
+            <p className="hero-animate hero-animate-4 text-sm sm:text-base text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed px-2">
+              8+ years building executive dashboards, automated reporting pipelines,
               and scalable datasets across telecom, healthcare, and manufacturing domains.
             </p>
             <button
