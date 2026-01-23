@@ -86,6 +86,44 @@ export default function Portfolio() {
           .stagger-3 { transition-delay: 0.3s; }
           .stagger-4 { transition-delay: 0.4s; }
 
+          /* Apple-style page load animations */
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(40px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+          .hero-animate {
+            animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            opacity: 0;
+          }
+
+          .hero-animate-1 { animation-delay: 0.1s; }
+          .hero-animate-2 { animation-delay: 0.3s; }
+          .hero-animate-3 { animation-delay: 0.5s; }
+          .hero-animate-4 { animation-delay: 0.7s; }
+          .hero-animate-5 { animation-delay: 0.9s; }
+
+          .hero-icons-animate {
+            animation: fadeIn 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+          }
+
           .floating-icon {
             animation: float 6s ease-in-out infinite;
             opacity: 0.6;
@@ -405,21 +443,21 @@ export default function Portfolio() {
           </div>
 
           <div className="text-center z-10 max-w-4xl px-6">
-            <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="hero-animate hero-animate-1 text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               Pramukh Chandra Molugu
             </h1>
-            <p className="text-2xl text-gray-300 mb-2">
+            <p className="hero-animate hero-animate-2 text-2xl text-gray-300 mb-2">
               Data Analyst / BI Developer
             </p>
-            <p className="text-lg text-blue-400 mb-4">
+            <p className="hero-animate hero-animate-3 text-lg text-blue-400 mb-4">
               SQL • Power BI • Tableau • ThoughtSpot • ETL
             </p>
-            <p className="text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="hero-animate hero-animate-4 text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
               8+ years building executive dashboards, automated reporting pipelines,<br />
               and scalable datasets across telecom, healthcare, and manufacturing domains.
             </p>
             <button
-              className="btn-primary"
+              className="hero-animate hero-animate-5 btn-primary"
               onClick={() => scrollToSection('experience')}
             >
               <span>View My Work</span>
