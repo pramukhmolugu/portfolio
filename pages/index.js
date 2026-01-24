@@ -118,6 +118,22 @@ export default function Portfolio() {
             transform: scale(1.1);
           }
 
+          /* Mobile menu slide animation */
+          @keyframes slideDown {
+            from {
+              transform: translateY(-100%);
+              opacity: 0;
+            }
+            to {
+              transform: translateY(0);
+              opacity: 1;
+            }
+          }
+
+          .mobile-menu-slide {
+            animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+          }
+
           /* Apple-style page load animations */
           @keyframes fadeInUp {
             from {
@@ -582,7 +598,7 @@ export default function Portfolio() {
 
         {/* Mobile Navigation Menu - Full Screen Overlay */}
         {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 z-[100] bg-[#0a0a0a]">
+          <div className="mobile-menu-slide md:hidden fixed inset-0 z-[100] bg-[#0a0a0a]">
             {/* Header with close button */}
             <div className="flex justify-between items-center px-4 py-4 border-b border-gray-800">
               <div className="text-lg font-bold text-blue-400">Pramukh Molugu</div>
