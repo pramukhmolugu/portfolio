@@ -99,6 +99,25 @@ export default function Portfolio() {
           .stagger-3 { transition-delay: 0.3s; }
           .stagger-4 { transition-delay: 0.4s; }
 
+          /* Hamburger button pop animation */
+          @keyframes popOut {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+          }
+
+          .hamburger-btn {
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+
+          .hamburger-btn:active {
+            animation: popOut 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+
+          .hamburger-btn:hover {
+            transform: scale(1.1);
+          }
+
           /* Apple-style page load animations */
           @keyframes fadeInUp {
             from {
@@ -550,16 +569,12 @@ export default function Portfolio() {
 
             {/* Mobile Hamburger Button */}
             <button
-              className="md:hidden p-2 text-white focus:outline-none"
+              className="hamburger-btn md:hidden p-2 text-white focus:outline-none"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
@@ -572,7 +587,7 @@ export default function Portfolio() {
             <div className="flex justify-between items-center px-4 py-4 border-b border-gray-800">
               <div className="text-lg font-bold text-blue-400">Pramukh Molugu</div>
               <button
-                className="p-2 text-white"
+                className="hamburger-btn p-2 text-white"
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Close menu"
               >
