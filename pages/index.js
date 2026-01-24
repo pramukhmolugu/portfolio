@@ -563,18 +563,34 @@ export default function Portfolio() {
               </svg>
             </button>
           </div>
+        </nav>
 
-          {/* Mobile Navigation Menu */}
-          <div className={`md:hidden fixed top-[60px] left-0 right-0 bottom-0 bg-[#0a0a0a] z-40 transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-            <div className="flex flex-col px-6 py-6 gap-2">
-              <span className="nav-link text-xl py-4 border-b border-gray-800" onClick={() => { scrollToSection('experience'); setMobileMenuOpen(false); }}>Experience</span>
-              <span className="nav-link text-xl py-4 border-b border-gray-800" onClick={() => { scrollToSection('projects'); setMobileMenuOpen(false); }}>Projects</span>
-              <span className="nav-link text-xl py-4 border-b border-gray-800" onClick={() => { scrollToSection('about'); setMobileMenuOpen(false); }}>About</span>
-              <a className="nav-link text-xl py-4 border-b border-gray-800" href="/resume" onClick={() => setMobileMenuOpen(false)}>Resume</a>
-              <span className="nav-link text-xl py-4" onClick={() => { scrollToSection('contact'); setMobileMenuOpen(false); }}>Contact</span>
+        {/* Mobile Navigation Menu - Full Screen Overlay */}
+        {mobileMenuOpen && (
+          <div className="md:hidden fixed inset-0 z-[100] bg-[#0a0a0a]">
+            {/* Header with close button */}
+            <div className="flex justify-between items-center px-4 py-4 border-b border-gray-800">
+              <div className="text-lg font-bold text-blue-400">Pramukh Molugu</div>
+              <button
+                className="p-2 text-white"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            {/* Menu Items */}
+            <div className="flex flex-col px-6 py-8 gap-2">
+              <span className="text-xl text-gray-300 py-4 border-b border-gray-800 cursor-pointer hover:text-white transition-colors" onClick={() => { scrollToSection('experience'); setMobileMenuOpen(false); }}>Experience</span>
+              <span className="text-xl text-gray-300 py-4 border-b border-gray-800 cursor-pointer hover:text-white transition-colors" onClick={() => { scrollToSection('projects'); setMobileMenuOpen(false); }}>Projects</span>
+              <span className="text-xl text-gray-300 py-4 border-b border-gray-800 cursor-pointer hover:text-white transition-colors" onClick={() => { scrollToSection('about'); setMobileMenuOpen(false); }}>About</span>
+              <a className="text-xl text-gray-300 py-4 border-b border-gray-800 cursor-pointer hover:text-white transition-colors" href="/resume" onClick={() => setMobileMenuOpen(false)}>Resume</a>
+              <span className="text-xl text-gray-300 py-4 cursor-pointer hover:text-white transition-colors" onClick={() => { scrollToSection('contact'); setMobileMenuOpen(false); }}>Contact</span>
             </div>
           </div>
-        </nav>
+        )}
 
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
