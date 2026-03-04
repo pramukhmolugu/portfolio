@@ -892,12 +892,25 @@ export default function Portfolio() {
 
                 <div className="space-y-6">
                   <div>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Data Science &amp; Analytics</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="skill-tag">Statistical Analysis</span>
+                      <span className="skill-tag">A/B Testing</span>
+                      <span className="skill-tag">Hypothesis Testing</span>
+                      <span className="skill-tag">Mathematical Modeling</span>
+                      <span className="skill-tag">Predictive Modeling</span>
+                      <span className="skill-tag">Experimentation Design</span>
+                    </div>
+                  </div>
+
+                  <div>
                     <h4 className="text-sm font-semibold text-blue-400 mb-3">Frontend / BI Tools</h4>
                     <div className="flex flex-wrap gap-2">
                       <span className="skill-tag">Power BI</span>
                       <span className="skill-tag">Tableau</span>
                       <span className="skill-tag">ThoughtSpot</span>
                       <span className="skill-tag">SSRS</span>
+                      <span className="skill-tag">Excel</span>
                     </div>
                   </div>
 
@@ -910,6 +923,7 @@ export default function Portfolio() {
                       <span className="skill-tag">SSIS</span>
                       <span className="skill-tag">Data Modeling</span>
                       <span className="skill-tag">ETL</span>
+                      <span className="skill-tag">PL/SQL</span>
                     </div>
                   </div>
 
@@ -918,20 +932,24 @@ export default function Portfolio() {
                     <div className="flex flex-wrap gap-2">
                       <span className="skill-tag">AWS S3</span>
                       <span className="skill-tag">Databricks</span>
-                      <span className="skill-tag">Azure Data Factory</span>
+                      <span className="skill-tag">Rundeck</span>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Programming & Tools</h4>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Programming &amp; Tools</h4>
                     <div className="flex flex-wrap gap-2">
                       <span className="skill-tag">Python</span>
                       <span className="skill-tag">Git</span>
                       <span className="skill-tag">Excel</span>
                       <span className="skill-tag">JSON</span>
                       <span className="skill-tag">YAML</span>
+                      <span className="skill-tag">GitHub</span>
+                      <span className="skill-tag">Azure DevOps</span>
+                      <span className="skill-tag">Bitbucket</span>
                     </div>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
