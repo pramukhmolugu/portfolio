@@ -2,7 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 
 export default function Resume() {
-  const pdfPath = "/Pramukh_Resume_DE_Professional.pdf";
+  const pdfPath = "/public/Pramukh_Resume_DS.pdf";
 
   return (
     <>
