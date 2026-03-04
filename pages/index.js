@@ -55,8 +55,8 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>Pramukh Chandra Molugu - Data Analyst / BI Developer</title>
-        <meta name="description" content="Data Analyst / BI Developer with 8+ years of experience in SQL, Power BI, Tableau, ThoughtSpot, and ETL" />
+        <title>Pramukh Chandra Molugu - Data Scientist</title>
+        <meta name="description" content="Data Scientist with 8+ years of experience in statistical analysis, A/B testing, experimentation, SQL, Python, Power BI, ThoughtSpot, and scalable ETL pipelines" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -700,14 +700,14 @@ export default function Portfolio() {
               Pramukh Chandra Molugu
             </h1>
             <p className="hero-animate hero-animate-2 text-lg sm:text-xl md:text-2xl text-gray-300 mb-2">
-              Data Analyst / BI Developer
+              Data Scientist
             </p>
             <p className="hero-animate hero-animate-3 text-sm sm:text-base md:text-lg text-blue-400 mb-4">
-              SQL • Power BI • Tableau • ThoughtSpot • ETL
+              Statistical Analysis • A/B Testing • Python • SQL • ThoughtSpot
             </p>
             <p className="hero-animate hero-animate-4 text-sm sm:text-base text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed px-2">
-              8+ years building executive dashboards, automated reporting pipelines,
-              and scalable datasets across telecom, healthcare, and manufacturing domains.
+              8+ years applying statistical modeling, experimentation, and scalable data pipelines
+              to drive product strategy and investment decisions across telecom, healthcare, and manufacturing.
             </p>
             <button
               className="hero-animate hero-animate-5 btn-primary"
@@ -728,20 +728,21 @@ export default function Portfolio() {
               <div className="timeline-item">
                 <div className="timeline-card">
                   <div className="timeline-date">May 2025 - Present</div>
-                  <h3 className="text-xl font-bold mb-1">Data Engineer / Analyst (Contract)</h3>
+                  <h3 className="text-xl font-bold mb-1">Data Scientist (Contract)</h3>
                   <p className="text-blue-400 text-sm mb-3">Comcast Corporation — Philadelphia, PA</p>
                   <ul className="space-y-2 text-gray-300 text-sm mb-4">
-                    <li>• Partnered with product, marketing, and operations to define KPIs and answer telecom OSS/BSS business questions</li>
-                    <li>• Built and maintained executive dashboards in ThoughtSpot/Power BI/Tableau, publishing 12 KPI dashboards</li>
-                    <li>• Automated extracts and validations via SQL + AWS S3 + Rundeck, reducing manual effort by 30–40%</li>
-                    <li>• Developed Python scripts to automate data extraction and KPI reporting workflows</li>
+                    <li>• Applied statistical analysis and mathematical modeling on large-scale customer, product, and network datasets to inform product strategy and key investment decisions</li>
+                    <li>• Designed and analyzed A/B tests and product experiments to evaluate new features and service improvements across Xfinity platforms using Python and SQL</li>
+                    <li>• Developed dashboards and reporting systems tracking product adoption, user behavior, conversion funnels, and retention for 15+ cross-functional stakeholders</li>
+                    <li>• Built scalable ETL workflows, data models, and pipelines across Trino/Oracle/SQL Server to support analytics, experimentation, and reporting</li>
                   </ul>
                   <div className="flex flex-wrap gap-2">
                     <span className="skill-tag">SQL</span>
                     <span className="skill-tag">Python</span>
-                    <span className="skill-tag">ThoughtSpot</span>
+                    <span className="skill-tag">A/B Testing</span>
                     <span className="skill-tag">Power BI</span>
-                    <span className="skill-tag">AWS S3</span>
+                    <span className="skill-tag">ThoughtSpot</span>
+                    <span className="skill-tag">Trino</span>
                   </div>
                 </div>
               </div>
@@ -835,11 +836,11 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Telecom Analytics */}
+              {/* Xfinity Product Analytics */}
               <div className="card-hover bg-[#1a1a1a]/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-800">
-                <h3 className="text-xl font-bold mb-3">Telecom Order & Toast Trend Analytics</h3>
+                <h3 className="text-xl font-bold mb-3">Xfinity Product Analytics Dashboard</h3>
                 <p className="text-gray-400 mb-4 text-sm leading-relaxed">
-                  Developed trend dashboards and reporting using Trino/Oracle SQL + Power BI/ThoughtSpot to track impacted orders/toasts/accounts by day for anomaly detection.
+                  Developed trend dashboards using Trino/Oracle SQL and Power BI/ThoughtSpot to track product adoption, user behavior, and anomaly detection across Comcast&apos;s digital platforms, supporting executive review and experimentation reporting.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="skill-tag">SQL</span>
@@ -875,13 +876,13 @@ export default function Portfolio() {
               <div className="lg:col-span-2">
                 <div className="space-y-6 text-gray-300 leading-relaxed">
                   <p>
-                    I'm a Data Analyst / BI Developer with 8+ years of experience turning complex datasets into reliable dashboards, automated reporting, and decision-ready insights. I've worked across telecom, healthcare, and manufacturing domains, supporting stakeholders with KPI monitoring, performance optimization, and data quality improvements.
+                    I&apos;m a Data Scientist with 8+ years of experience applying statistical analysis, mathematical modeling, and experimentation to turn large-scale datasets into actionable product insights. I&apos;ve worked across telecom, healthcare, and manufacturing domains, driving product strategy, investment decisions, and operational improvements through rigorous data science.
                   </p>
                   <p>
-                    I enjoy solving messy data problems, improving reporting efficiency, and building scalable reporting frameworks that teams can trust. I'm especially interested in analytics engineering, executive reporting, and automation-driven BI solutions.
+                    I specialize in designing and analyzing A/B tests, building experimentation frameworks, and developing scalable data pipelines that power analytics and reporting. I&apos;m especially passionate about the intersection of statistical rigor and practical product impact&mdash;translating complex models into decisions that matter.
                   </p>
                   <p>
-                    Outside work, I focus on continuous learning, exploring new data tools, and improving my end-to-end engineering + analytics skillset.
+                    Outside work, I focus on continuous learning, exploring emerging data science tools, and deepening my expertise in machine learning and causal inference.
                   </p>
                 </div>
               </div>
