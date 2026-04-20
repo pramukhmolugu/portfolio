@@ -55,8 +55,8 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>Pramukh Chandra Molugu - Data Scientist</title>
-        <meta name="description" content="Data Scientist with 8+ years of experience in statistical analysis, A/B testing, experimentation, SQL, Python, Power BI, ThoughtSpot, and scalable ETL pipelines" />
+        <title>Pramukh Chandra Molugu - Data Analyst</title>
+        <meta name="description" content="Data Analyst with 8+ years of experience in SQL, Python, Power BI, ThoughtSpot, statistical analysis, data pipelines, and cross-functional stakeholder reporting" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -700,7 +700,7 @@ export default function Portfolio() {
               Pramukh Chandra Molugu
             </h1>
             <p className="hero-animate hero-animate-2 text-lg sm:text-xl md:text-2xl text-gray-300 mb-2">
-              Data Scientist
+              Data Analyst
             </p>
             <p className="hero-animate hero-animate-3 text-sm sm:text-base md:text-lg text-blue-400 mb-4">
               Statistical Analysis • A/B Testing • Python • SQL • ThoughtSpot
@@ -728,21 +728,28 @@ export default function Portfolio() {
               <div className="timeline-item">
                 <div className="timeline-card">
                   <div className="timeline-date">May 2025 - Present</div>
-                  <h3 className="text-xl font-bold mb-1">Data Scientist (Contract)</h3>
+                  <h3 className="text-xl font-bold mb-1">Data Analyst (Contract)</h3>
                   <p className="text-blue-400 text-sm mb-3">Comcast Corporation — Philadelphia, PA</p>
                   <ul className="space-y-2 text-gray-300 text-sm mb-4">
-                    <li>• Applied statistical analysis and mathematical modeling on large-scale customer, product, and network datasets to inform product strategy and key investment decisions</li>
-                    <li>• Designed and analyzed A/B tests and product experiments to evaluate new features and service improvements across Xfinity platforms using Python and SQL</li>
-                    <li>• Developed dashboards and reporting systems tracking product adoption, user behavior, conversion funnels, and retention for 15+ cross-functional stakeholders</li>
-                    <li>• Built scalable ETL workflows, data models, and pipelines across Trino/Oracle/SQL Server to support analytics, experimentation, and reporting</li>
+                    <li>• Partnered with product, engineering, and operations teams to define and prioritize key business problems across Xfinity Mobile subscriber lifecycle, including order fallout, activation, and billing reconciliation.</li>
+                    <li>• Queried and integrated data from multiple systems (Trino, Oracle, CRM, billing, and operational platforms) to extract, validate, and transform large-scale datasets for analysis.</li>
+                    <li>• Built and maintained end-to-end data pipelines using SQL and Python across Databricks and AWS S3, consolidating multi-source data into unified analytical views.</li>
+                    <li>• Performed deep-dive analysis on subscriber behavior, retention trends, and operational performance to identify root causes and actionable insights.</li>
+                    <li>• Defined, monitored, and reported key KPIs across conversion funnels and operational workflows, directly influencing product roadmap and process optimization decisions.</li>
+                    <li>• Developed Power BI and ThoughtSpot dashboards enabling self-service analytics for 15+ stakeholders, improving decision speed and reducing manual reporting effort.</li>
+                    <li>• Applied statistical analysis and trend evaluation to uncover patterns, correlations, and anomalies in high-volume telecom data.</li>
+                    <li>• Automated recurring reporting workflows, reducing turnaround time and improving data reliability for business users.</li>
+                    <li>• Collaborated with cross-functional teams to ensure data accuracy, resolve discrepancies, and enhance overall data quality across systems.</li>
                   </ul>
                   <div className="flex flex-wrap gap-2">
                     <span className="skill-tag">SQL</span>
                     <span className="skill-tag">Python</span>
-                    <span className="skill-tag">A/B Testing</span>
                     <span className="skill-tag">Power BI</span>
                     <span className="skill-tag">ThoughtSpot</span>
                     <span className="skill-tag">Trino</span>
+                    <span className="skill-tag">Databricks</span>
+                    <span className="skill-tag">AWS S3</span>
+                    <span className="skill-tag">Oracle</span>
                   </div>
                 </div>
               </div>
@@ -876,13 +883,13 @@ export default function Portfolio() {
               <div className="lg:col-span-2">
                 <div className="space-y-6 text-gray-300 leading-relaxed">
                   <p>
-                    I&apos;m a Data Scientist with 8+ years of experience applying statistical analysis, mathematical modeling, and experimentation to turn large-scale datasets into actionable product insights. I&apos;ve worked across telecom, healthcare, and manufacturing domains, driving product strategy, investment decisions, and operational improvements through rigorous data science.
+                    I&apos;m a Data Analyst with 8+ years of experience turning large-scale, multi-source datasets into actionable insights and self-service analytics. I&apos;ve worked across telecom, healthcare, and manufacturing domains, driving product strategy, KPI definition, and operational improvements through rigorous analysis.
                   </p>
                   <p>
-                    I specialize in designing and analyzing A/B tests, building experimentation frameworks, and developing scalable data pipelines that power analytics and reporting. I&apos;m especially passionate about the intersection of statistical rigor and practical product impact&mdash;translating complex models into decisions that matter.
+                    I specialize in building end-to-end data pipelines, Power BI and ThoughtSpot dashboards, and cross-functional reporting solutions. I&apos;m especially passionate about connecting data quality to business outcomes&mdash;making complex data accessible and decision-ready for stakeholders at every level.
                   </p>
                   <p>
-                    Outside work, I focus on continuous learning, exploring emerging data science tools, and deepening my expertise in machine learning and causal inference.
+                    Outside work, I focus on continuous learning, exploring emerging AI and analytics tools, and deepening my expertise in statistical analysis and data engineering.
                   </p>
                 </div>
               </div>
@@ -892,19 +899,15 @@ export default function Portfolio() {
 
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Data Science &amp; Analytics</h4>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Languages</h4>
                     <div className="flex flex-wrap gap-2">
-                      <span className="skill-tag">Statistical Analysis</span>
-                      <span className="skill-tag">A/B Testing</span>
-                      <span className="skill-tag">Hypothesis Testing</span>
-                      <span className="skill-tag">Mathematical Modeling</span>
-                      <span className="skill-tag">Predictive Modeling</span>
-                      <span className="skill-tag">Experimentation Design</span>
+                      <span className="skill-tag">Python</span>
+                      <span className="skill-tag">SQL</span>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Frontend / BI Tools</h4>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">BI &amp; Visualization</h4>
                     <div className="flex flex-wrap gap-2">
                       <span className="skill-tag">Power BI</span>
                       <span className="skill-tag">Tableau</span>
@@ -915,38 +918,64 @@ export default function Portfolio() {
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Backend / Data</h4>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Data Engineering</h4>
                     <div className="flex flex-wrap gap-2">
-                      <span className="skill-tag">SQL (T-SQL)</span>
+                      <span className="skill-tag">ETL (SSIS)</span>
+                      <span className="skill-tag">Data Pipelines</span>
+                      <span className="skill-tag">Data Warehousing</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Platforms</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="skill-tag">SQL Server</span>
                       <span className="skill-tag">Oracle</span>
-                      <span className="skill-tag">Trino/Presto</span>
-                      <span className="skill-tag">SSIS</span>
-                      <span className="skill-tag">Data Modeling</span>
-                      <span className="skill-tag">ETL</span>
-                      <span className="skill-tag">PL/SQL</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Cloud / Platforms</h4>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="skill-tag">AWS S3</span>
+                      <span className="skill-tag">Trino</span>
                       <span className="skill-tag">Databricks</span>
-                      <span className="skill-tag">Rundeck</span>
+                      <span className="skill-tag">AWS S3</span>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Programming &amp; Tools</h4>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Healthcare Analytics</h4>
                     <div className="flex flex-wrap gap-2">
-                      <span className="skill-tag">Python</span>
+                      <span className="skill-tag">Claims Data</span>
+                      <span className="skill-tag">Risk Adjustment</span>
+                      <span className="skill-tag">Medicare</span>
+                      <span className="skill-tag">Medicaid</span>
+                      <span className="skill-tag">ACA</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Tools</h4>
+                    <div className="flex flex-wrap gap-2">
                       <span className="skill-tag">Git</span>
-                      <span className="skill-tag">Excel</span>
-                      <span className="skill-tag">JSON</span>
-                      <span className="skill-tag">YAML</span>
-                      <span className="skill-tag">GitHub</span>
                       <span className="skill-tag">Azure DevOps</span>
-                      <span className="skill-tag">Bitbucket</span>
+                      <span className="skill-tag">JIRA</span>
+                      <span className="skill-tag">Service Desk</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Analytics &amp; Statistics</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="skill-tag">Quantitative Analysis</span>
+                      <span className="skill-tag">Statistical Modeling</span>
+                      <span className="skill-tag">Hypothesis Testing</span>
+                      <span className="skill-tag">A/B Testing</span>
+                      <span className="skill-tag">Forecasting</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-semibold text-blue-400 mb-3">Automation &amp; AI Tools</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="skill-tag">Generative AI</span>
+                      <span className="skill-tag">Claude</span>
+                      <span className="skill-tag">GitHub Copilot</span>
+                      <span className="skill-tag">Cursor</span>
                     </div>
                   </div>
                 </div>
